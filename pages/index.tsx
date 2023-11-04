@@ -1,4 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import OpenAI from "openai";
+
+
+
+const openai = new OpenAI({
+  apiKey: "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",
+  dangerouslyAllowBrowser: true
+});
+
+
 export default function Home() {
   const [file, setFile] = useState<File>()
 
@@ -29,6 +39,8 @@ export default function Home() {
       // Handle errors here
       console.error(e)
     }
+
+    
   }
   return (
     <main>
@@ -40,6 +52,7 @@ export default function Home() {
         onChange={(e) => setFile(e.target.files?.[0])}
       />
       <input type="submit" value="Upload" />
+      <p>ChatGPT</p>
     </form>
     </main>
   )
