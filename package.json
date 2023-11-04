@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.1",
     "formidable": "^3.5.1",
     "formidable-serverless": "^1.1.1",
+    "framer-motion": "^10.16.4",
     "next": "14.0.1",
     "openai": "^4.14.2",
     "react": "^18",
