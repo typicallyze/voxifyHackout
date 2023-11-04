@@ -7,13 +7,22 @@ export default function Home() {
     if (!file) return
 
     try {
-      const data = new FormData()
-      data.set('file', file)
+      const data = new FormData();
+      
+      data.append('file', file);
+      data.append("model","whisper-1");
+      data.append("response_format","verbose_json");
 
-      const res = await fetch('/api/upload', {
-        method: 'POST',
-        body: data
+      const res = await fetch("https://api.openai.com/v1/whisper", {
+      method: "POST",
+      body: data,
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
+      },
       })
+    .then((response)=> response.json())
+    .catch((error)=> {console.error(error);});
+
       // handle the error
       if (!res.ok) throw new Error(await res.text())
     } catch (e: any) {
