@@ -4,7 +4,7 @@ import OpenAI from "openai";
 
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: "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",
   dangerouslyAllowBrowser: true
 });
 
@@ -17,26 +17,18 @@ export default function Home() {
     if (!file) return
 
     try {
-      const data = new FormData();
-      
-      data.append('file', file);
-      data.append("model","whisper-1");
-      data.append("response_format","verbose_json");
+      console.log("starting")
 
-      const res = await fetch("https://api.openai.com/v1/whisper", {
-      method: "POST",
-      body: data,
-      headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
-      },
-      })
-    .then((response)=> response.json())
-    .catch((error)=> {console.error(error);});
+      await console.log(await openai.audio.transcriptions.create({file: file,
+        model: 'whisper-1',
+        response_format: "text"  
+      }))
 
-      // handle the error
-      if (!res.ok) throw new Error(await res.text())
+      console.log("finished")
+
+
+   
     } catch (e: any) {
-      // Handle errors here
       console.error(e)
     }
 
