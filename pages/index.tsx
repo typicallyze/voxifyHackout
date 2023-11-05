@@ -13,11 +13,9 @@ import {
 
 //This should be done via api routes for final production build
 
-var KEY = process.env.OPENAI_API_KEY;
-
 let a = 0;
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: "insert your API here",
   dangerouslyAllowBrowser: true,
 });
 
