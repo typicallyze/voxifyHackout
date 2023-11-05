@@ -10,12 +10,15 @@ import {
   Divider,
   Link,
 } from "@nextui-org/react";
-import { Switch } from "@nextui-org/react";
+
+
+
 let a = 0;
 const openai = new OpenAI({
-  apiKey: "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",
-  dangerouslyAllowBrowser: true,
+  apiKey: `${process.env.OPENAI_API_KEY}`,
+  dangerouslyAllowBrowser: true 
 });
+
 
 export default function Home() {
   const [file, setFile] = useState<File>();

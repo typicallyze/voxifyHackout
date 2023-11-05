@@ -1,4 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import OpenAI from "openai";
+
 
 export default function Document() {
   return (
