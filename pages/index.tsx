@@ -15,7 +15,7 @@ const KEY = process.env.OPENAI_API_KEY
 
 let a = 0;
 const openai = new OpenAI({
-  apiKey: KEY,
+  apiKey: "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",
   dangerouslyAllowBrowser: true 
 });
 
