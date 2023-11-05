@@ -34,10 +34,10 @@ export default function Home() {
           messages: [
             {
               role: "user",
-              content: `This is a the transcript of my speech can you please tell me what mistakes I made and how I can improve them?"${transcript} " Also give me a score out 100 and be very strict`,
+              content: `You are a speech guide and will tell the user what mistakes they made in their speech and tell them how they can correct/improve them. You will also give them a score out of 100. Be VERY strict in giving the scores. The score must be in the end of your message like this "[Score: 47/100]". Here is the transcript "${transcript}"`,
             },
           ],
-          model: "gpt-3.5-turbo",
+          model: "gpt-3.5-turbo-16k",
         });
         setResponse(`${chatCompletion.choices[0]?.message?.content}`);
       };
@@ -58,6 +58,7 @@ export default function Home() {
         `${await openai.audio.transcriptions.create({
           file: file,
           model: "whisper-1",
+          prompt: "So uhm, yeaah, Okay, ehm, uuuh, umm, uhh, ahh, well, ah, uh",
           response_format: "text",
         })}`
       );
