@@ -11,13 +11,15 @@ import {
   Link,
 } from "@nextui-org/react";
 
-
+const KEY = process.env.OPENAI_API_KEY
 
 let a = 0;
 const openai = new OpenAI({
-  apiKey: `${process.env.OPENAI_API_KEY}`,
+  apiKey: KEY,
   dangerouslyAllowBrowser: true 
 });
+
+
 
 
 export default function Home() {
@@ -28,7 +30,7 @@ export default function Home() {
   useEffect(() => {
     if (a > 0) {
       console.log("Transcript changed ?");
-      async function getResponse() {
+      const f = async function getResponse() {
         const chatCompletion = await openai.chat.completions.create({
           messages: [
             {
@@ -40,7 +42,7 @@ export default function Home() {
         });
         setResponse(`${chatCompletion.choices[0]?.message?.content}`);
       }
-      getResponse();
+      f();
     }
     a++; //idk what the real way to do this is but this works ¯\_(ツ)_/¯
     console.log(a);
