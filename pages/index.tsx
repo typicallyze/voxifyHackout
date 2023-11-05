@@ -11,18 +11,21 @@ import {
   Link,
 } from "@nextui-org/react";
 
-const KEY = process.env.OPENAI_API_KEY
+var KEY = process.env.OPENAI_API_KEY
 
 let a = 0;
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: "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",
   dangerouslyAllowBrowser: true 
 });
 
 
 
-
 export default function Home() {
+
+  
+
+
   const [file, setFile] = useState<File>();
   const [transcript, setTranscript] = useState("");
   const [response, setResponse] = useState("");
