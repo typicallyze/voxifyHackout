@@ -11,7 +11,6 @@ import {
   Link,
 } from "@nextui-org/react";
 
-//This should be done via api routes for final production build
 
 let a = 0;
 const openai = new OpenAI({
@@ -41,7 +40,7 @@ export default function Home() {
       };
       f();
     }
-    a++; //idk what the real way to do this is but this works ¯\_(ツ)_/¯
+    a++; 
     console.log(a);
   }, [transcript]);
 
@@ -63,7 +62,6 @@ export default function Home() {
 
       console.log("finished");
     } catch (e: any) {
-      // Handle errors here
       console.error(e);
     }
   };
